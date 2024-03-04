@@ -2,7 +2,7 @@
 
 To get started:
 
-- <a href="https://github.com/eesazahed/bitcoin-calc-chrome-extension/archive/refs/heads/main.zip" rel="nofollow">Download ZIP></a>
+- <a href="https://github.com/eesazahed/bitcoin-calc-chrome-extension/archive/refs/heads/main.zip" rel="nofollow">Click to download</a>
 - Open Chrome
 - Go to ([chrome://extensions/](chrome://extensions/))
 - Select 'Load unpacked'
