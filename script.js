@@ -10,17 +10,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   let bitcoinPrice = localStorage.getItem("lastBitcoinPrice");
 
   try {
-    if (!bitcoinPrice) {
-      const response = await fetch(API);
-      const data = await response.json();
-      bitcoinPrice = data.bpi.USD.rate_float;
-      localStorage.setItem("lastBitcoinPrice", bitcoinPrice);
-    }
-
+    const response = await fetch(API);
+    const data = await response.json();
+    bitcoinPrice = data.bpi.USD.rate_float.toFixed(2);
+    localStorage.setItem("lastBitcoinPrice", bitcoinPrice);
     bitcoinPriceElement.textContent = bitcoinPrice;
   } catch (error) {
-    main.innerHTML = "<p>Could not fetch Bitcoin price :(</p>";
-    return;
+    if (bitcoinPrice) {
+      bitcoinPriceElement.textContent = bitcoinPrice;
+    } else {
+      main.innerHTML = "<p>Could not fetch Bitcoin price :(</p>";
+      return;
+    }
   }
 
   let bitcoinAmount = localStorage.getItem("bitcoinAmount");
